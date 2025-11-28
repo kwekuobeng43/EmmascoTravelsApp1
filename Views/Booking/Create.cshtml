@@ -1,0 +1,107 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+
+@model EmmascoTravelsApp1.Models.Booking
+
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+
+            <!-- Package Summary Card -->
+            <div class="card mb-4 shadow-sm rounded-4 overflow-hidden">
+                <div class="row g-0 align-items-center">
+                    <div class="col-md-4">
+                        <img src="@Model.Package.ImageUrl" 
+                             alt="@Model.Package.Name" 
+                             class="img-fluid rounded-start" />
+                    </div>
+                    <div class="col-md-8 d-flex flex-column justify-content-center p-3">
+                        <h4 class="card-title text-success fw-bold">@Model.Package.Name</h4>
+                        <p class="card-text mb-1">Experience the best of travel with this package designed for comfort and adventure.</p>
+                        <p class="card-text fw-semibold">
+                            <strong>Price:</strong> @(Model.Package.Price.ToString("C0", new System.Globalization.CultureInfo("en-US")))
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Booking Form Card -->
+            <div class="card shadow-lg p-4 rounded-4">
+                <h3 class="text-center mb-4 text-success">Book Your Package</h3>
+
+                <form asp-action="Create" method="post">
+                    @Html.AntiForgeryToken()<!--puts a secret stamp on the form.to check for corrections (form) before bring a post-->
+                    <input type="hidden" asp-for="PackageId" />
+
+                    <!-- Validation Summary -->
+                    <div asp-validation-summary="All" class="alert alert-danger mb-3" style="display:none;"></div>
+
+                    <!-- Customer Name -->
+                    <div class="mb-3">
+                        <label asp-for="CustomerName" class="form-label fw-semibold"></label>
+                        <input asp-for="CustomerName" class="form-control form-control-lg" placeholder="Enter your full name" />
+                        <span asp-validation-for="CustomerName" class="text-danger small"></span>
+                    </div>
+
+                    <!-- Email -->
+                    <div class="mb-3">
+                        <label asp-for="CustomerEmail" class="form-label fw-semibold"></label>
+                        <input asp-for="CustomerEmail" class="form-control form-control-lg" placeholder="Enter your email address" />
+                        <span asp-validation-for="CustomerEmail" class="text-danger small"></span>
+                    </div>
+
+                    <!-- Number of People -->
+                    <div class="mb-3">
+                        <label asp-for="NumberOfPeople" class="form-label fw-semibold"></label>
+                        <input asp-for="NumberOfPeople" class="form-control form-control-lg" type="number" min="1" placeholder="Number of travelers" />
+                        <span asp-validation-for="NumberOfPeople" class="text-danger small"></span>
+                    </div>
+
+                    <!-- Travel Date -->
+                    <div class="mb-3">
+                        <label asp-for="TravelDate" class="form-label fw-semibold"></label>
+                        <input asp-for="TravelDate" class="form-control form-control-lg" type="date" />
+                        <span asp-validation-for="TravelDate" class="text-danger small"></span>
+                    </div>
+
+                    <!-- Arrival Date -->
+                    <div class="mb-4">
+                        <label asp-for="ArrivalDate" class="form-label fw-semibold"></label>
+                        <input asp-for="ArrivalDate" class="form-control form-control-lg" type="date" />
+                        <span asp-validation-for="ArrivalDate" class="text-danger small"></span>
+                    </div>
+
+                    <!-- Payment Plan -->
+                    <div class="mb-4">
+                        <h5 class="fw-bold mb-3 text-success">Payment Plan</h5>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" asp-for="PaymentOption" value="Full" checked>
+                            <label class="form-check-label">Pay Full Amount Now</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" asp-for="PaymentOption" value="Deposit">
+                            <label class="form-check-label">Pay 30% Deposit, Balance on Arrival</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" asp-for="PaymentOption" value="OnArrival">
+                            <label class="form-check-label">Pay on Arrival</label>
+                        </div>
+                        <span asp-validation-for="PaymentOption" class="text-danger small"></span>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button type="submit" class="btn btn-success btn-lg w-100">
+                        <i class="fa fa-check-circle me-2"></i> Confirm Booking
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Include Animate.css for animations -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>

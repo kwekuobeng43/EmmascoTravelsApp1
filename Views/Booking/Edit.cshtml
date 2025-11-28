@@ -1,0 +1,86 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+
+@model EmmascoTravelsApp1.Models.Booking
+
+@{
+    ViewData["Title"] = "Edit Booking";
+}
+
+<div class="container mt-5 mb-3">
+    <h2 class="mb-4">Edit Booking</h2>
+    <form asp-action="Edit" method="post">
+        <input type="hidden" asp-for="Id" />
+
+        <div class="form-group">
+            <label asp-for="PackageId" class="control-label"></label>
+            <select asp-for="PackageId" class="form-control"
+                    asp-items="@(new SelectList(ViewBag.Packages, "Id", "Name", Model.PackageId))">
+            </select>
+            <span asp-validation-for="PackageId" class="text-danger"></span>
+        </div>
+
+
+        <div class="mb-3">
+            <label asp-for="CustomerName" class="form-label"></label>
+            <input asp-for="CustomerName" class="form-control" />
+            <span asp-validation-for="CustomerName" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="CustomerEmail" class="form-label"></label>
+            <input asp-for="CustomerEmail" class="form-control" />
+            <span asp-validation-for="CustomerEmail" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="NumberOfPeople" class="form-label"></label>
+            <input asp-for="NumberOfPeople" class="form-control" />
+            <span asp-validation-for="NumberOfPeople" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="TravelDate" class="form-label"></label>
+            <input asp-for="TravelDate" type="date" class="form-control" />
+            <span asp-validation-for="TravelDate" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="ArrivalDate" class="form-label"></label>
+            <input asp-for="ArrivalDate" type="date" class="form-control" />
+            <span asp-validation-for="ArrivalDate" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="PaymentOption" class="form-label"></label>
+            <select asp-for="PaymentOption" class="form-control">
+                <option value="">-- Select Payment Option --</option>
+                <option value="Full">Pay Full Amount Now</option>
+                <option value="Deposit">Pay 30% Deposit, Balance on Arrival</option>
+                <option value="OnArrival">Pay on Arrival</option>
+            </select>
+            <span asp-validation-for="PaymentOption" class="text-danger"></span>
+        </div>
+
+
+        <div class="form-group">
+            <label for="newStatus">Status</label>
+            <select name="newStatus" class="form-control">
+                <option value="">-- Keep Current (@ViewBag.CurrentStatus) --</option>
+                <option>Pending</option>
+                <option>Confirmed</option>
+                <option>Cancelled</option>
+            </select>
+        </div>
+
+
+
+        <button type="submit" class="btn btn-success mb-3">Save Changes</button>
+        <a asp-action="MyBookings" class="btn btn-secondary mb-3">Cancel</a>
+    </form>
+</div>
+

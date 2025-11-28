@@ -1,0 +1,22 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+
+@model User
+
+<div class="card">
+    <div class="card-body">
+        @if (Model.ProfilePicture != null)
+        {
+            <img src="data:image/jpeg;base64,@Convert.ToBase64String(Model.ProfilePicture)" class="img-thumbnail" style="width: 250px; height: 250px; object-fit: cover;" />
+        }
+        <h5 class="card-title">@Model.FirstName @Model.LastName</h5>
+        <p class="card-text">Email: @Model.Email</p>
+        <p class="card-text">Phone: @Model.PhoneNumber</p>
+        <p class="card-text">Address: @Model.Address</p>
+        <a asp-controller="UserManagement" asp-action="Index" class="btn btn-secondary">Back to List</a>
+    </div>
+</div>

@@ -1,0 +1,83 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+
+
+
+@model EmmascoTravelsApp1.Models.Booking
+
+@{
+    ViewData["Title"] = "Booking Confirmation";
+}
+
+<div class="container mt-5">
+    <div class="card shadow-lg p-5 rounded-4">
+        <!-- Header + Image Side-by-Side -->
+        <div class="d-flex align-items-center justify-content-center mb-4">
+            <img src="~/image1/confrim.jpg" 
+                 alt="Booking Confirmed" 
+                 class="img-fluid rounded-circle shadow-lg me-3 animate__animated animate__fadeInDown" 
+                 style="max-width:120px;">
+            <h2 class="text-success mb-0 animate__animated animate__fadeInRight">Booking Confirmed!</h2>
+        </div>
+
+        <p class="text-center">Thank you, <strong>@Model.CustomerName</strong>! Your booking has been confirmed.</p>
+
+        <div class="alert alert-success d-flex justify-content-between align-items-center rounded-4 shadow-sm">
+            <div>
+                <h5 class="mb-1"><strong>Booking ID:</strong> @Model.Id</h5>
+                <small class="text-dark">Use this ID to track your booking anytime.</small>
+            </div>
+            <button class="btn btn-outline-light btn-sm" onclick="navigator.clipboard.writeText('@Model.Id')">
+                Copy ID
+            </button>
+        </div>
+
+        <hr />
+
+        <h4 class="mb-3">Booking Details</h4>
+        <p><strong>Package:</strong> @Model.Package.Name</p>
+        <p><strong>Travel Date:</strong> @Model.TravelDate.ToString("D")</p>
+        <p><strong>Arrival Date:</strong> @Model.ArrivalDate.ToString("D")</p>
+        <p><strong>Number of People:</strong> @Model.NumberOfPeople</p>
+        <p><strong>Total Price:</strong> @((Model.NumberOfPeople * Model.Package.Price).ToString("C0", System.Globalization.CultureInfo.GetCultureInfo("en-US")))</p>
+        <p class="text-dark fw-bold">
+            <strong>Payment Option:</strong> @Model.PaymentOption
+        </p>
+
+        <div class="text-center mt-4">
+            <a asp-controller="Package" asp-action="Index" class="btn btn-primary me-2">Back to Packages</a>
+            <a asp-controller="Tracking" asp-action="Index" class="btn btn-info">Track Booking Here</a>
+        </div>
+    </div>
+</div>
+
+
+<hr />
+
+<div class="mt-4">
+    <h4 class="mb-3 text-center text-primary">Next Steps</h4>
+    <div class="row text-center">
+        <div class="col-md-4 mb-3">
+            <div class="card h-100 shadow-sm border-0 rounded-4 p-3">
+                <i class="fa fa-envelope text-success fa-2x mb-2"></i>
+                <h6>Email Confirmation</h6>
+                <p class="small text-muted">We’ve sent your booking details to <strong>@Model.CustomerEmail</strong>.</p>
+            </div>
+        </div>
+        <div class="col-md-4 mb-3">
+            <div class="card h-100 shadow-sm border-0 rounded-4 p-3">
+                <i class="fa fa-plane text-info fa-2x mb-2"></i>
+                <h6>Travel Prep</h6>
+                <p class="small text-muted">Please arrive at least 2 hours before your departure date: <strong>@Model.TravelDate.ToString("D")</strong>.</p>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- Include Animate.css if not already in your layout -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>

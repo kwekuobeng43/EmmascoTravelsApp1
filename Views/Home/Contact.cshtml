@@ -1,0 +1,77 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+
+@model EmmascoTravelsApp1.Models.Feedback
+
+<div class="container mt-5">
+    <h2 class="text-center text-success mb-4">Contact Us</h2>
+
+    <div class="row">
+        <!-- Contact Details -->
+        <div class="col-md-6 mb-4">
+            <div class="card bg-dark text-white p-4 rounded-4 shadow">
+                <h4>📞 Reach Us</h4>
+                <p>
+                    <strong>Phone:</strong>
+                    <a href="tel:+233597712361" class="text-success">+233 597 712 361</a>
+                </p>
+                <p>
+                    <strong>Email:</strong>
+                    <a href="mailto:support@emmascotravels.com" class="text-success">support@emmascotravels.com</a>
+                </p>
+                <p>
+                    We are available Mon–Fri, 8AM–5PM.
+                </p>
+            </div>
+        </div>
+
+
+        <!-- Feedback Form -->
+        <div class="col-md-6">
+            <div class="card p-4 shadow rounded-4">
+                <h4 class="mb-3">Send Us a Message</h4>
+                <form asp-controller="Feedback" asp-action="Submit" method="post">
+                    @Html.AntiForgeryToken()
+
+                    <div class="mb-3">
+                        <label asp-for="Name" class="form-label"></label>
+                        <input asp-for="Name" class="form-control" required />
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="Email" class="form-label"></label>
+                        <input asp-for="Email" class="form-control" type="email" required />
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="Message" class="form-label"></label>
+                        <textarea asp-for="Message" class="form-control" rows="4" required></textarea>
+                        <span asp-validation-for="Message" class="text-danger"></span>
+                    </div>
+
+                    <button type="submit" class="btn btn-success w-100">Submit Feedback</button>
+                </form>
+                @if (TempData["Success"] != null)
+                {
+                    <div class="alert alert-success alert-dismissible fade show mt-4" role="alert">
+                        <i class="fa fa-check-circle"></i> @TempData["Success"]
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+
+                    <script>
+                        setTimeout(function () {
+                            $(".alert").alert('close');
+                        }, 3000); // auto close after 3 sec
+                    </script>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+

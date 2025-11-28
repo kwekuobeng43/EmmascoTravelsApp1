@@ -1,0 +1,85 @@
+﻿
+
+
+
+
+@model EmmascoTravelsApp1.Models.User
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow-lg border-0" style="background-color: #f9f9f9; border-radius: 10px;">
+                <div class="card-header text-center bg-success text-white rounded-top">
+                    <h2>Create User</h2>
+                </div>
+                <div class="card-body p-4">
+                    <form asp-controller="UserManagement" asp-action="Create" method="post" enctype="multipart/form-data">
+                        @Html.AntiForgeryToken()
+                        <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+                        <div class="form-group mb-3">
+                            <label asp-for="FirstName"></label>
+                            <input asp-for="FirstName" class="form-control form-control-lg" />
+                            <span asp-validation-for="FirstName" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label asp-for="LastName"></label>
+                            <input asp-for="LastName" class="form-control form-control-lg" />
+                            <span asp-validation-for="LastName" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label asp-for="Username"></label>
+                            <input asp-for="Username" class="form-control form-control-lg" />
+                            <span asp-validation-for="Username" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label asp-for="Email"></label>
+                            <input asp-for="Email" type="email" class="form-control form-control-lg" />
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label asp-for="Password"></label>
+                            <input asp-for="Password" type="password" class="form-control form-control-lg" placeholder="Enter a password" />
+                            <span asp-validation-for="Password" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label asp-for="PhoneNumber"></label>
+                            <input asp-for="PhoneNumber" class="form-control form-control-lg" />
+                            <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label asp-for="Address"></label>
+                            <input asp-for="Address" class="form-control form-control-lg" />
+                            <span asp-validation-for="Address" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label>Profile Picture</label>
+                            <input type="file" name="ProfileImage" class="form-control form-control-lg" />
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label asp-for="Role"></label>
+                            <select asp-for="Role" class="form-control form-control-lg">
+                                <option value="">Select Role</option>
+                                <option value="Admin">Admin</option>
+                                <option value="Standard User">Standard User</option>
+                            </select>
+                            <span asp-validation-for="Role" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group mt-4">
+                            <input type="submit" value="Create User" class="btn btn-success w-100" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,21 @@
+﻿
+
+@model List<EmmascoTravelsApp1.Models.Package>
+
+<div class="row">
+@foreach (var package in Model)
+{
+<div class="col-md-4 mb-4 mt-4">
+<div class="card shadow-sm border-0">
+<img src="@package.ImageUrl" alt="@package.Name" class="card-img-top" style="height:190px; object-fit:cover;">
+<div class="card-body">
+<h2 class="card-title fs-4 fw-bold">@package.Name</h2>
+<p class="card-text text-muted">@package.Description.Substring(0, Math.Min(package.Description.Length, 100))...</p>
+<p class="card-text fs-5 fw-bold">@package.Price.ToString("C0", System.Globalization.CultureInfo.GetCultureInfo("en-US"))</p>
+
+  <a asp-action="Details" asp-route-id="@package.Id" class="btn btn-primary">View Details</a>
+</div>
+</div>
+</div>
+}
+</div>

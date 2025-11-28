@@ -1,0 +1,81 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+        @model EmmascoTravelsApp1.Models.Tracking
+
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-8 col-md-10">
+            <!-- Tracking Details Card -->
+            <div class="card shadow-lg rounded-4 border-0">
+                <div class="card-header bg-success text-white">
+                    <div class="d-flex align-items-center justify-content-center">
+                        <!-- Image with Bootstrap animation -->
+                        <img src="~/image1/track.jpg" alt="Tracking Icon" 
+                             class="img-fluid rounded-circle shadow-lg me-3" 
+                             style="max-width:100px;">
+
+                        <!-- Header text -->
+                        <h2 class="mb-0">Tracking Details</h2>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <!-- Status Section -->
+                    <div class="mb-4 text-center">
+                        <h4 class="text-primary">
+                            Status: <span class="badge bg-info text-dark">@Model.Status</span>
+                        </h4>
+                    </div>
+
+                    <!-- Booking Details -->
+                    <h3 class="text-success mb-3">Booking Information</h3>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                            <strong>Customer Email:</strong> @Model.Booking.CustomerEmail
+                        </li>
+                        <li class="list-group-item">
+                            <strong>Package:</strong> @Model.Booking.Package.Name
+                        </li>
+                        <li class="list-group-item">
+                            <strong>Total Price:</strong>
+                            @((Model.Booking.Package.Price * Model.Booking.NumberOfPeople).ToString("C0", new System.Globalization.CultureInfo("en-US")))
+                           
+                        </li>
+                        <li class="list-group-item">
+                            <strong>Payment Option:</strong> @Model.Booking.PaymentOption
+                        </li>
+                    </ul>
+
+                    <!-- Actions -->
+                    <div class="mt-4 text-center">
+                        <a asp-controller="Package" asp-action="Index" class="btn btn-outline-primary me-2">
+                            Browse More Packages
+                        </a>
+                        
+                        <a href="tel:+233597712361" class="btn btn-outline-success me-2">
+                            📞 Call Support
+                        </a>
+
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="mt-4 text-center">
+    <div class="alert alert-info" role="alert" style="font-size: 1rem;">
+        <strong>Tip:</strong> Easily check your booking progress and stay informed every step of the way.
+        <br />
+        Tracking your booking ensures you never miss an update about your trip.
+        <br />
+        Stay ahead with real-time details and enjoy a smooth travel experience.
+    </div>
+</div>
+
+<!-- Include Animate.css in your layout if not already -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>

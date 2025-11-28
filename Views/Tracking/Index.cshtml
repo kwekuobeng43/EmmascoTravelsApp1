@@ -1,0 +1,80 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+
+
+@{
+    ViewData["Title"] = "Track Booking";
+}
+
+<!-- Track Booking Section -->
+<div class="container-fluid bg-light py-5">
+    <div class="container">
+        <div class="row align-items-center">
+
+            <!-- Form Section (Left) -->
+            <div class="col-lg-6 order-lg-1 mb-4 mb-lg-0">
+                <div class="card shadow-lg p-4 rounded-4" style="min-height: 500px;">
+                    <h2 class="text-center text-success mb-4">Track Your Booking</h2>
+
+                    @if (ViewBag.Error != null)
+                    {
+                        <div class="alert alert-danger text-center">@ViewBag.Error</div>
+                    }
+
+                    <form method="post" asp-action="Details">
+                        <div class="mb-3">
+                            <label for="email" class="form-label fw-bold">Email Address</label>
+                            <input type="email" class="form-control form-control-lg" id="email" name="email" placeholder="Enter your email" required />
+                        </div>
+                        <div class="mb-3">
+                            <label for="bookingId" class="form-label fw-bold">Booking ID</label>
+                            <input type="number" class="form-control form-control-lg" id="bookingId" name="bookingId" placeholder="Enter your booking ID" required />
+                        </div>
+                        <div class="d-grid mb-4">
+                            <button type="submit" class="btn btn-primary btn-lg">
+                                <i class="fas fa-search"></i> Track Booking
+                            </button>
+                        </div>
+                    </form>
+
+                    <!-- Helpful Suggestions -->
+                    <hr />
+                    <div class="text-center">
+                        <h5 class="text-primary mb-2">Need Help?</h5>
+                        <p class="small text-muted">
+                            Can’t find your booking ID? <br />
+                            Check your confirmation email or
+                            <a href="/Contact" class="text-success fw-bold">contact our support team</a>.
+                            <a href="tel:+233597712361" class="text-success fw-bold">
+                                Call our support team
+                            </a>
+                            or
+                            <a href="mailto:emmascotravels@gmail.com" class="text-success fw-bold">
+                                Email us
+                            </a>.
+                        </p>
+                        <p class="small text-muted">
+                            Want to explore more destinations? <br />
+                            <a asp-controller="Package" asp-action="Index" class="btn btn-outline-primary btn-sm mt-2">View Our Packages</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Image Section (Right) -->
+            <div class="col-lg-6 order-lg-2 text-center">
+                <img src="~/image1/track1.jpg" alt="Track Your Booking"
+                     class="img-fluid rounded shadow-lg" style="max-height: 400px;">
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Animate.css for animations -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+

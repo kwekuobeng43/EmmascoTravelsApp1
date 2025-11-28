@@ -1,0 +1,24 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+
+@model EmmascoTravelsApp1.Models.Tracking
+
+<h2>Tracking Details (Admin View)</h2>
+
+<div class="card p-4 shadow">
+    <h4>Booking: @Model.Booking.BookingId</h4>
+    <p><strong>Customer:</strong> @Model.Booking.CustomerName</p>
+    <p><strong>Email:</strong> @Model.Booking.CustomerEmail</p>
+    <p><strong>Package:</strong> @Model.Booking.Package.PackageName</p>
+    <p><strong>Status:</strong> @Model.Status</p>
+    <p><strong>Last Updated:</strong> @Model.LastUpdated.ToString("g")</p>
+
+    <hr />
+
+    <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary">Edit Tracking</a>
+    <a asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-danger">Delete Tracking</a>
+</div>

@@ -1,0 +1,308 @@
+﻿<!-- ✅ KEEPING YOUR FIRST DIV UNTOUCHED ABOVE -->
+@model IEnumerable<EmmascoTravelsApp1.Models.Package>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+
+
+
+<div class="container-fluid p-0">
+    <div class="row min-vh-100 g-0">
+
+        <!-- Left Image -->
+        <div class="col-12 col-lg-6 p-0 order-1 order-lg-1">
+            <div class="bg-image w-100 h-100"
+                 style="background-image: url('@Url.Content("~/image1/passport.jpg")');
+                        background-size: cover;
+                        background-position: center;
+                        min-height: 50vh;">
+            </div>
+        </div>
+
+        <!-- Right Text -->
+        <div class="col-12 col-lg-6 d-flex flex-column justify-content-center align-items-start p-4 order-2 order-lg-2">
+            <h1 class="display-4">Welcome to Emmasco Travels!</h1>
+            <h2>Your Journey, Our Passion</h2>
+            <p class="lead">Explore new destinations and experiences with us. From exotic getaways to relaxing escapes, we've got you covered.</p>
+            <p class="lead">Our team of experts will guide you every step of the way, ensuring that your trip is nothing short of amazing.</p>
+        </div>
+
+    </div>
+</div>
+
+
+
+
+<!-- WHY CHOOSE US -->
+<div class="row bg-gradient text-dark p-5 g-3" style="background: linear-gradient(135deg, #e3f2fd, #e1f5fe);">
+    <h2 class="text-center w-100 mb-5 fw-bold text-info">Why Choose Us?</h2>
+
+    <div class="col-12 col-sm-6 col-md-4 d-flex">
+        <div class="card border-0 shadow-lg rounded-4 flex-fill">
+            <div class="card-body text-center p-4">
+                <i class="bi bi-person-bounding-box text-primary fs-1 mb-3"></i>
+                <h5 class="card-title fw-bold">Expert Guides</h5>
+                <p class="card-text">Our expert guides take you on journeys filled with knowledge, culture, and hidden gems — making every trip unforgettable.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-12 col-sm-6 col-md-4 d-flex">
+        <div class="card border-0 shadow-lg rounded-4 flex-fill">
+            <div class="card-body text-center p-4">
+                <i class="bi bi-geo-alt-fill text-success fs-1 mb-3"></i>
+                <h5 class="card-title fw-bold">Personalized Itineraries</h5>
+                <p class="card-text">Every journey is unique. We customize itineraries tailored to your travel style, preferences, and dreams.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-12 col-sm-6 col-md-4 d-flex">
+        <div class="card border-0 shadow-lg rounded-4 flex-fill">
+            <div class="card-body text-center p-4">
+                <i class="bi bi-stars text-warning fs-1 mb-3"></i>
+                <h5 class="card-title fw-bold">Unforgettable Experiences</h5>
+                <p class="card-text">Immerse yourself in culture, cuisine, and breathtaking views that leave lasting memories.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- CAROUSEL -->
+<div class="container-fluid my-5">
+    <div class="card border-0 shadow-lg rounded-4 overflow-hidden">
+        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="~/image1/famil.jpg" class="d-block w-100" style="height: 500px; object-fit: cover;" alt="Family travel">
+                </div>
+                <div class="carousel-item">
+                    <img src="~/image1/slide2.jpg" class="d-block w-100" style="height: 500px; object-fit: cover;" alt="Adventure">
+                </div>
+                <div class="carousel-item">
+                    <img src="~/image1/airpo.jpg" class="d-block w-100" style="height: 500px; object-fit: cover;" alt="Airport travel">
+                </div>
+                <!-- ... keep your remaining carousel items ... -->
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon bg-dark rounded-circle p-2"></span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                <span class="carousel-control-next-icon bg-dark rounded-circle p-2"></span>
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- DISCOVER SECTION -->
+<div class="container-fluid my-5">
+    <div class="row g-0 shadow-lg rounded-4 overflow-hidden">
+        <div class="col-12 col-lg-6 d-flex flex-column justify-content-center align-items-start p-5 bg-light">
+            <h2 class="fw-bold text-primary mb-3">Discover the World with Us</h2>
+            <p class="lead">From bustling cities to serene landscapes — every destination offers something special.</p>
+            <p class="lead">Our travel experts will work with you to craft a journey that’s truly yours.</p>
+            <button class="btn btn-outline-primary mt-3 px-4">Learn More</button>
+        </div>
+        <div class="col-12 col-lg-6">
+            <img src="~/image1/passport1.jpg" class="w-100 h-100" style="object-fit: cover;" alt="Discover travel">
+        </div>
+    </div>
+</div>
+
+<!-- EXPLORE DESTINATIONS -->
+<div class="container py-5">
+    <h2 class="text-center fw-bold mb-5 text-primary">Explore Our Destinations</h2>
+    <div class="row g-4">
+        <div class="col-md-3 col-sm-6">
+            <div class="card border-0 shadow-sm rounded-4 overflow-hidden">
+                <img src="~/image1/download6.jpg" class="card-img-top" alt="Destination 1">
+            </div>
+        </div>
+        <div class="col-md-3 col-sm-6">
+            <div class="card border-0 shadow-sm rounded-4 overflow-hidden">
+                <img src="~/image1/download3.jpg" class="card-img-top" alt="Destination 2">
+            </div>
+        </div>
+        <div class="col-md-3 col-sm-6">
+            <div class="card border-0 shadow-sm rounded-4 overflow-hidden">
+                <img src="~/image1/download4.jpg" class="card-img-top" alt="Destination 3">
+            </div>
+        </div>
+        <div class="col-md-3 col-sm-6">
+            <div class="card border-0 shadow-sm rounded-4 overflow-hidden">
+                <img src="~/image1/download5.jpg" class="card-img-top" alt="Destination 4">
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- POPULAR TRAVEL PACKAGES (Dynamic) -->
+<div class="container py-5 bg-gradient" style="background: linear-gradient(135deg, #f0f4ff, #e8f5e9);">
+    <h2 class="text-center mb-5 fw-bold text-primary">Popular Travel Packages</h2>
+
+    <div class="row">
+        @foreach (var package in Model)
+        {
+            <div class="col-md-4 mb-4 mt-4">
+                <div class="card shadow-sm border-0">
+                    <img src="@Url.Content(package.ImageUrl ?? "~/image1/default.jpg")"
+                         alt="@package.Name"
+                         class="card-img-top"
+                         style="height:190px; object-fit:cover;">
+
+                    <div class="card-body text-center">
+                        <h2 class="card-title fs-4 fw-bold">@package.Name</h2>
+
+                        <p class="card-text text-muted">
+                            @(package.Description?.Length > 100
+                                                    ? package.Description.Substring(0, 100) + "..."
+                                                    : package.Description)
+                    </p>
+
+                        <p class="card-text fs-5 fw-bold text-success">
+                            @package.Price.ToString("C0", System.Globalization.CultureInfo.GetCultureInfo("en-US"))
+                        </p>
+
+                        <a asp-controller="Booking"
+                           asp-action="Create"
+                           asp-route-packageId="@package.Id"
+                           class="btn btn-outline-primary">
+                            Book Now
+                        </a>
+                        <a asp-controller="Package"
+                           asp-action="Details"
+                           asp-route-id="@package.Id"
+                           class="btn btn-primary ms-2">
+                            View Details
+                        </a>
+                    </div>
+                </div>
+            </div>
+                }
+    </div>
+</div>
+
+
+
+
+
+
+<!-- TESTIMONIALS -->
+<div class="container py-5">
+    <h2 class="text-center fw-bold mb-5 text-primary">What Our Clients Say</h2>
+    <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active text-center">
+                <div class="p-4 bg-light rounded-4 shadow-sm mx-auto" style="max-width: 700px;">
+                    <i class="bi bi-chat-quote-fill fs-1 text-primary mb-3"></i>
+                    <p class="fst-italic mb-3">"Emmasco Travels made our honeymoon absolutely perfect. Every detail was flawless!"</p>
+                    <h6 class="text-muted">— Sarah & Michael, UK</h6>
+                </div>
+            </div>
+            <div class="carousel-item text-center">
+                <div class="p-4 bg-light rounded-4 shadow-sm mx-auto" style="max-width: 700px;">
+                    <i class="bi bi-chat-quote-fill fs-1 text-success mb-3"></i>
+                    <p class="fst-italic mb-3">"Their customer service is outstanding — I felt supported every step of the way."</p>
+                    <h6 class="text-muted">— David O., Nigeria</h6>
+                </div>
+            </div>
+            <div class="carousel-item text-center">
+                <div class="p-4 bg-light rounded-4 shadow-sm mx-auto" style="max-width: 700px;">
+                    <i class="bi bi-chat-quote-fill fs-1 text-warning mb-3"></i>
+                    <p class="fst-italic mb-3">"Best travel agency I’ve ever used! Amazing tours and excellent pricing."</p>
+                    <h6 class="text-muted">— Amira K., UAE</h6>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon bg-dark rounded-circle p-2"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon bg-dark rounded-circle p-2"></span>
+        </button>
+    </div>
+</div>
+
+<!-- CALL TO ACTION -->
+<div class="container-fluid bg-info text-white text-center py-5 rounded-top-4">
+    <h2 class="fw-bold mb-3">Ready to Start Your Next Adventure?</h2>
+    <p class="lead mb-4">Let us make your dream journey come true. Discover, explore, and experience the world with Emmasco Travels.</p>
+    <a href="/Contact" class="btn btn-light btn-lg px-4 rounded-pill shadow-sm">Contact Us Today</a>
+</div>
+
+
+
+
+
+
+
+
+
+
+<!-- ================= NEW SECTION: TOP DEALS ================= -->
+<div class="container py-5">
+    <h2 class="text-center mb-5 fw-bold text-primary">Top Travel Deals</h2>
+    <div class="row g-4">
+        <div class="col-md-4">
+            <div class="card border-0 shadow-lg h-100">
+                <img src="~/image1/bali.jpg" class="card-img-top rounded-top" alt="Bali Deal">
+                <div class="card-body text-center">
+                    <h5 class="card-title fw-bold">Bali Getaway - 30% Off</h5>
+                    <p class="card-text">7 days of tropical paradise with spa, beaches, and cultural tours.</p>
+                    <span class="badge bg-success mb-2">Limited Time Offer</span>
+                    <button class="btn btn-outline-success w-100">Book Now</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card border-0 shadow-lg h-100">
+                <img src="~/image1/italy.jpg" class="card-img-top rounded-top" alt="Italy Deal">
+                <div class="card-body text-center">
+                    <h5 class="card-title fw-bold">Taste of Italy</h5>
+                    <p class="card-text">Explore Rome, Florence, and Venice — culinary & cultural magic.</p>
+                    <span class="badge bg-danger mb-2">Hot Deal</span>
+                    <button class="btn btn-outline-secondary w-100">Book Now</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card border-0 shadow-lg h-100">
+                <img src="~/image1/egypt.jpg" class="card-img-top rounded-top" alt="Egypt Deal">
+                <div class="card-body text-center">
+                    <h5 class="card-title fw-bold">Egyptian Wonders</h5>
+                    <p class="card-text">Walk among the pyramids and cruise the Nile in style.</p>
+                    <span class="badge bg-warning text-dark mb-2">New Arrival</span>
+                    <button class="btn btn-outline-primary w-100">Book Now</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ================= HOW IT WORKS ================= -->
+<div class="container-fluid bg-light py-5 mb-5">
+    <h2 class="text-center fw-bold mb-5">How It Works</h2>
+    <div class="row text-center">
+        <div class="col-md-4">
+            <i class="bi bi-search-heart fs-1 text-primary mb-3"></i>
+            <h5 class="fw-bold">1. Explore</h5>
+            <p>Browse through our curated packages and destinations tailored to your dreams.</p>
+        </div>
+        <div class="col-md-4">
+            <i class="bi bi-calendar2-check fs-1 text-success mb-3"></i>
+            <h5 class="fw-bold">2. Book</h5>
+            <p>Choose your preferred date and package — easy and fast online booking.</p>
+        </div>
+        <div class="col-md-4">
+            <i class="bi bi-airplane fs-1 text-danger mb-3"></i>
+            <h5 class="fw-bold">3. Travel</h5>
+            <p>Sit back, relax, and let us handle everything. Your adventure begins!</p>
+        </div>
+    </div>
+</div>
+
+
